@@ -1,3 +1,5 @@
+<?php require('../api/functions.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +41,7 @@
       <form action="" method="post">
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre">
+          <input type="text" class="form-control" placeholder="Nombre" name="name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -48,7 +50,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Apellido">
+          <input type="text" class="form-control" placeholder="Apellido" name="lastName">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -99,6 +101,11 @@
 
       <div class="social-auth-links text-center">
         <p>- OR -</p>
+
+        <?php
+          ControladorUsuarios::registroUsuario();
+        ?>
+
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
           Sign up using Facebook
