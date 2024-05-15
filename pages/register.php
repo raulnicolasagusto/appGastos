@@ -106,7 +106,7 @@
         <p>- O tambien -</p>
 
         <?php
-          ControladorUsuarios::registroUsuario();
+          ControladorUsuarios::registroUsuario($con);
         ?>
 
         <a href="#" class="btn btn-block btn-primary">

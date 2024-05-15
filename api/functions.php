@@ -9,7 +9,7 @@ class ControladorUsuarios {
 
   //Registro de usuarios
 
-  static public function registroUsuario(){
+  static public function registroUsuario($con){
 
     if (isset($_POST["registerName"]) && !empty($_POST["registerLastName"]) &&
        (isset($_POST["registerEmail"]) && !empty($_POST["registerPass"]))) {
@@ -18,6 +18,26 @@ class ControladorUsuarios {
       $registerLastName = $_POST['registerLastName'];
       $registerEmail = $_POST['registerEmail'];
       $registerPass = $_POST['registerPass'];
+
+      $table = "users";
+      // $data = array(
+      //         "name_user" => $registerName,
+      //         "lastName_user" => $registerLastName,
+      //         "mail_user" => $registerEmail,
+      //         "pass_user" => $registerPass
+
+      // );
+
+      $query = $con->prepare("INSERT INTO $table(name_user, lastName_user, mail_user, pass_user)
+                VALUES(:registerName, :registerLastName, :registerEmail, :registerPass)");
+
+      $query->bindParam(':registerName', $registerName);
+      $query->bindParam(':registerLastName', $registerLastName);
+      $query->bindParam(':registerEmail', $registerEmail);
+      $query->bindParam(':registerPass', $registerPass);
+
+      $query->execute();
+
 
 
        echo "<script>

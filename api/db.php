@@ -10,6 +10,7 @@ try {
 
 } catch (PDOException $e) {
   echo "NO se pudo conectar";
+  $con = null;
 }
 
-$con = null;
+
