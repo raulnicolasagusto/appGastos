@@ -16,6 +16,9 @@
 
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
   <!-- Personalizado Background -->
     <style>
 
@@ -41,7 +44,7 @@
       <form action="" method="post">
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre" name="name">
+          <input type="text" class="form-control" placeholder="Nombre" name="registerName">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -50,7 +53,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Apellido" name="lastName">
+          <input type="text" class="form-control" placeholder="Apellido" name="registerLastName">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -59,7 +62,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Ingrese su email" name="registerEmail">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -67,7 +70,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña">
+          <input type="password" class="form-control" placeholder="Ingrese la constraseña" name="registerPass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -75,7 +78,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Reingrese contraseña">
+          <input type="password" class="form-control" placeholder="Reingrese la contraseña" name="retryRegisterPass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -93,14 +96,14 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
       <div class="social-auth-links text-center">
-        <p>- OR -</p>
+        <p>- O tambien -</p>
 
         <?php
           ControladorUsuarios::registroUsuario();
@@ -108,11 +111,11 @@
 
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
+          Iniciar sesion con Facebook
         </a>
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
+          Iniciar sesion con Google+
         </a>
       </div>
 

@@ -11,10 +11,31 @@ class ControladorUsuarios {
 
   static public function registroUsuario(){
 
-    if (isset($_POST['name'])&& isset($_POST['lastName'])) {
-      echo '<div class="alert alert-success" role="alert">
-      This is a primary alert—check it out!
-    </div> ';
+    if (isset($_POST["registerName"]) && !empty($_POST["registerLastName"]) &&
+       (isset($_POST["registerEmail"]) && !empty($_POST["registerPass"]))) {
+
+      $registerName = $_POST['registerName'];
+      $registerLastName = $_POST['registerLastName'];
+      $registerEmail = $_POST['registerEmail'];
+      $registerPass = $_POST['registerPass'];
+
+
+       echo "<script>
+       Swal.fire({
+         icon: 'success',
+         title: 'Exelente!',
+         text: 'El usuario se registro correctamente! Ya puedes iniciar sesion!',
+         })
+        //window.location= 'index.php'
+        </script>";
+
+    }else{
+
+      echo '<div class="alert alert-danger" role="alert">
+                    Debe completar todos los campos para registrarse :(
+             </div> ';
+
+
     }
 
   }
@@ -22,3 +43,5 @@ class ControladorUsuarios {
 
 
 }
+
+
