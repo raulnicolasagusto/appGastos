@@ -1,4 +1,13 @@
+<?php
+  require('api/functions.php');
 
+    session_start();
+
+    if (!$_SESSION['name_user']) {
+        header('location: pages/login.php');
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

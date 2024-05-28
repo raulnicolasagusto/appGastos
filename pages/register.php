@@ -96,7 +96,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+            <button type="submit" class="btn btn-primary btn-block" name="submit">Registrar</button>
           </div>
           <!-- /.col -->
         </div>
@@ -106,7 +106,13 @@
         <p>- O tambien -</p>
 
         <?php
+        if (isset($_POST["registerName"]) && !empty($_POST["registerLastName"]) &&
+        (isset($_POST["registerEmail"]) && !empty($_POST["registerPass"]))) {
+
           ControladorUsuarios::registroUsuario($con);
+
+        }
+
         ?>
 
         <a href="#" class="btn btn-block btn-primary">
