@@ -70,7 +70,7 @@ class ControladorUsuarios {
       $emailUser = $_POST["ingresoEmail"];
       $passUser = $_POST["ingresoPass"];
 
-      $query = $con->prepare("SELECT name_user, pass_user, mail_user, lastName_user FROM users WHERE mail_user = '$emailUser' AND pass_user = '$passUser'");
+      $query = $con->prepare("SELECT id_user, name_user, pass_user, mail_user, lastName_user FROM users WHERE mail_user = '$emailUser' AND pass_user = '$passUser'");
       $query->execute();
 
 
@@ -100,16 +100,35 @@ class InicioSesion{
   static public function iniciosesion($login){
 
     session_start();
-    // $_SESSION['id_usuario'] =$data['0']['id_usuario'];
-    // $_SESSION['nombre_usuario'] =$data['0']['nombre_usuario'];
-    // $_SESSION['apellido_usuario'] =$data['0']['apellido_usuario'];
-    // $_SESSION['email_usuario'] =$data['0']['email_usuario'];
-    // $_SESSION['password_usuario'] =$data['0']['password_usuario'];
+      $_SESSION['id_user'] = $login['id_user'];
       $_SESSION['name_user'] = $login['name_user'];
       $_SESSION['mail_user'] = $login['mail_user'];
       $_SESSION['lastName_user'] = $login['lastName_user'];
-    header('location: ../../../index.php');
+      header('location: ../../../index.php');
 
 
   }
 }
+
+
+//Mosotrar Gastos
+
+class MuestraGastos{
+
+	static public function mostrarRegistroGastos($con){
+
+
+
+		$stmt = $con->prepare("SELECT * FROM expenses ORDER BY id_expenses DESC");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchall();
+
+        return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
+

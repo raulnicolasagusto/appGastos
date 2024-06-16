@@ -1,5 +1,9 @@
 <!-- Modal Agregar -->
-<?php require('agregar.php');?>
+<?php require('agregar.php');
+
+$data = MuestraGastos::mostrarRegistroGastos($con);
+$userID = $_SESSION['id_user'];
+?>
 
 <?php
     if (isset($_POST['nombreGasto'])) {
@@ -8,12 +12,11 @@
                         Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Your work has been saved",
+                        title: "Gastos Agregado",
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 2000
                       });
-              </script>
-          ' ;
+        </script>' ;
 
 
   }
@@ -120,35 +123,133 @@
             </thead>
               <tbody>
                 <tr>
-                  <td>Alquiler</td>
-                  <td>$290000</td>
-                  <td>01/05/2024</td>
-                  <td>no</td>
-                  <td>Fijo</td>
-                  <td>si</td>
-                  <td>Alquiler del mes de Junio</td>
-                  <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1">Editar</button><button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button></td>
+                <?php  if (empty($data) ) {
+                          echo '<div class="alert alert-danger">
+                          <strong>No se encontraron resultados.</strong>
+                                </div>';
+                }?>
+                <?php foreach ($data as $item) { ?>
+                  <td>
+
+                    <?php
+
+                      if ($userID === $item['id_user']) {
+
+                        echo $item['name_expenses'];
+
+                      }else{
+
+                        echo "No agregado";
+                      }
+
+                    ?>
+
+                  </td>
+                  <td>
+
+                  <?php
+
+                      if ($userID === $item['id_user']) {
+
+                        echo  $item['amount_expenses'];
+
+                      }else{
+
+                        echo "No agregado";
+                      }
+
+                      ?>
+
+                  </td>
+                  <td>
+
+                  <?php
+
+                          if ($userID === $item['id_user']) {
+
+                            echo  $item['date_expenses'];
+
+                          }else{
+
+                            echo "No agregado";
+                          }
+
+                          ?>
+
+                  </td>
+                  <td>
+
+
+                  <?php
+
+                      if ($userID === $item['id_user']) {
+
+                        if ($item['period_expenses'] === null) {
+                          echo "No agregado";
+                         }else{
+
+                        echo $item['period_expenses'];
+                    }
+
+                      }else{
+
+                        echo "No agregado";
+                      }
+
+                      ?>
+
+                  </td>
+                  <td>
+                  <?php if ($item['costType_expenses'] === 0) {
+                              echo "FIJO";
+                        }else{
+
+                              echo "VARIABLE";
+                        } ?>
+                  </td>
+                  <td>
+                  <?php
+
+                  if ($userID === $item['id_user']) {
+
+                    if ($item['shared_expenses'] === 0) {
+                      echo "Comun, no compartido";
+                }else{
+
+                      echo "Compartido";
+                }
+
+                  }else{
+
+                    echo "No agregado";
+                  }
+
+                   ?>
+                  </td>
+                  <td>
+                  <?php
+
+                  if ($userID === $item['id_user']) {
+
+                    if ($item['obs_expenses'] === '') {
+                      echo "No agregado";
+                }else{
+
+                      echo $item['obs_expenses'];
+                }
+
+                  }else{
+
+                    echo "No agregado";
+                  }
+
+                   ?>
+                  </td>
+                  <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1">Editar</button>
+                  <button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button>
+                  </td>
                 </tr>
-                <tr>
-                 <td>Crema Rishis</td>
-                  <td>$45000</td>
-                  <td>01/05/2024</td>
-                  <td>1/4</td>
-                  <td>Variable</td>
-                  <td>no</td>
-                  <td>Cremas para cara y cuerpo</td>
-                  <td style><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1">Editar</button><button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button></td>
-                </tr>
-                <tr>
-                 <td>Mercaderia Carrefour</td>
-                  <td>$160000</td>
-                  <td>01/05/2024</td>
-                  <td>1/3</td>
-                  <td>Variable</td>
-                  <td>si</td>
-                  <td>Compras del mes de Junio</td>
-                  <td style><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1">Editar</button><button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button></td>
-                </tr>
+                    <?php } ?>
 
               </tbody>
                 </table>
