@@ -48,7 +48,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-alt"></i>
               <p>
-                Anabel Sosa Gauna
+                Gastos <?php echo $_SESSION['name_user'];?>
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

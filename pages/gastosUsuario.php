@@ -1,5 +1,26 @@
+<!-- Modal Agregar -->
+<?php require('agregar.php');?>
+
+<?php
+    if (isset($_POST['nombreGasto'])) {
 
 
+
+      echo'<div <script>
+
+                              Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: "Your work has been saved",
+                          showConfirmButton: false,
+                          timer: 1500
+                        });
+                </script>
+              </div>' ;
+
+
+  }
+?>
 
 
  <!-- Main content -->
@@ -84,7 +105,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <button type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1">Agregar Gasto</button>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" >Agregar Gasto</button>
                 <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -199,3 +221,4 @@
     </div>
   </div>
   -->
+
