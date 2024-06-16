@@ -200,12 +200,24 @@ $userID = $_SESSION['id_user'];
 
                   </td>
                   <td>
-                  <?php if ($item['costType_expenses'] === 0) {
-                              echo "FIJO";
-                        }else{
+                  <?php
+                  if ($userID === $item['id_user']) {
 
-                              echo "VARIABLE";
-                        } ?>
+                    if ($item['costType_expenses'] === 0) {
+                      echo "FIJO";
+                     }else{
+
+                      echo "VARIABLE";
+                     }
+
+                  }else{
+
+                    echo "No agregado";
+                  }
+
+
+
+                   ?>
                   </td>
                   <td>
                   <?php
