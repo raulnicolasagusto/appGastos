@@ -281,7 +281,8 @@
           document.getElementById('sectionGastosList').classList.remove('content')
           document.getElementById('sectionGastosList').classList.add('d-none');
         } else {
-
+          document.getElementById('sectionGastosList').classList.remove('d-none')
+          document.getElementById('sectionGastosList').classList.add('content');
         }
     }
 
