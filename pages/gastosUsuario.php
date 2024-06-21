@@ -90,6 +90,11 @@ $userID = $_SESSION['id_user'];
           </div>
           <!-- /.row -->
   </div>
+<!-- en estos input hidden, guardamos los valores de los id a comparar, para que con js, usando clases eliminemos la tabla si es que no hay datos  -->
+  <div>
+      <input type="hidden" name="idActual" value="<?php echo $data[0]['id_user']; ?>"></input>
+      <input type="hidden" name="idtabla" value="<?php echo $userID; ?>"></input>
+ </div>
 
 </section>
 <!-- fin charts -->
@@ -99,6 +104,7 @@ $userID = $_SESSION['id_user'];
                     echo '<div class="alert alert-danger">
                     <strong>Todavia no hay gastos en este periodo.</strong>
                           </div>';
+
 
                   }else{
 

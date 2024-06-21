@@ -272,6 +272,9 @@
       options: areaChartOptions
     })
 
+    //pluing para eliminar clases en las listas de gastos
+
+
 
 </script>
 </body>
