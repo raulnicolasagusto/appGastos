@@ -92,8 +92,19 @@ $userID = $_SESSION['id_user'];
   </div>
 
 </section>
-
 <!-- fin charts -->
+<?php
+                if ($userID !== $data[0]['id_user']) {
+
+                    echo '<div class="alert alert-danger">
+                    <strong>Todavia no hay gastos en este periodo.</strong>
+                          </div>';
+
+                  }else{
+
+                  }
+               ?>
+
 
  <section class="content">
       <div class="container-fluid">
@@ -123,11 +134,7 @@ $userID = $_SESSION['id_user'];
             </thead>
               <tbody>
                 <tr>
-                <?php  if (empty($data) ) {
-                          echo '<div class="alert alert-danger">
-                          <strong>No se encontraron resultados.</strong>
-                                </div>';
-                }?>
+
                 <?php foreach ($data as $item) { ?>
                   <td>
 
