@@ -274,7 +274,18 @@
 
     //pluing para eliminar clases en las listas de gastos
 
+    function eliminarClases(){
+      let idActual = document.getElementById("idActual").value;
+      let idTabla = document.getElementById("idTabla").value;
+        if (idActual != idTabla) {
+          document.getElementById('sectionGastosList').classList.remove('content')
+          document.getElementById('sectionGastosList').classList.add('d-none');
+        } else {
 
+        }
+    }
+
+    eliminarClases();
 
 </script>
 </body>

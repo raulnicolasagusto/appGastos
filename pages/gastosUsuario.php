@@ -92,8 +92,8 @@ $userID = $_SESSION['id_user'];
   </div>
 <!-- en estos input hidden, guardamos los valores de los id a comparar, para que con js, usando clases eliminemos la tabla si es que no hay datos  -->
   <div>
-      <input type="hidden" name="idActual" value="<?php echo $data[0]['id_user']; ?>"></input>
-      <input type="hidden" name="idtabla" value="<?php echo $userID; ?>"></input>
+      <input type="hidden" name="idActual" id="idActual" value="<?php echo $data[0]['id_user']; ?>"></input>
+      <input type="hidden" name="idtabla" id="idTabla"  value="<?php echo $userID; ?>"></input>
  </div>
 
 </section>
@@ -112,7 +112,7 @@ $userID = $_SESSION['id_user'];
                ?>
 
 
- <section class="content">
+ <section class="content" id="sectionGastosList" >
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
