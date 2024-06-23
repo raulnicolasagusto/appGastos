@@ -115,11 +115,11 @@ class InicioSesion{
 
 class MuestraGastos{
 
-	static public function mostrarRegistroGastos($con){
+	static public function mostrarRegistroGastos($con,$userID){
 
 
 
-		$stmt = $con->prepare("SELECT * FROM expenses ORDER BY id_expenses DESC");
+		$stmt = $con->prepare("SELECT * FROM expenses WHERE id_user = $userID ORDER BY id_expenses DESC");
 
 		$stmt -> execute();
 

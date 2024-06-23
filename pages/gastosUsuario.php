@@ -1,8 +1,9 @@
 <!-- Modal Agregar -->
-<?php require('agregar.php');
 
-$data = MuestraGastos::mostrarRegistroGastos($con);
+<?php require('agregar.php');
 $userID = $_SESSION['id_user'];
+$data = MuestraGastos::mostrarRegistroGastos($con,$userID);
+
 ?>
 
 <?php
@@ -99,17 +100,20 @@ $userID = $_SESSION['id_user'];
 </section>
 <!-- fin charts -->
 <?php
-                if ($userID !== $data[0]['id_user']) {
-
-                    echo '<div class="alert alert-danger">
-                    <strong>Todavia no hay gastos en este periodo.</strong>
-                          </div>';
 
 
-                  }else{
 
-                  }
-               ?>
+                // if ($userID !== $data[0]['id_user']) {
+
+                //     echo '<div class="alert alert-danger">
+                //     <strong>Todavia no hay gastos en este periodo.</strong>
+                //           </div>';
+                //           echo $data[0]['id_user'];
+
+                //   }else{
+
+                //   }
+     ?>
 
 
  <section class="content" id="sectionGastosList" >
@@ -141,7 +145,7 @@ $userID = $_SESSION['id_user'];
               <tbody>
                 <tr>
 
-                <?php foreach ($data as $item) { ?>
+                <?php foreach ($data as $valor=>$item) { ?>
                   <td>
 
                     <?php
