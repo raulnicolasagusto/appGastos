@@ -115,8 +115,7 @@ class InicioSesion{
 
 class MuestraGastos{
 
-	static public function mostrarRegistroGastos($con,$userID){
-
+	static public function mostrarRegistroGastos($con,$userID,){
 
 
 		$stmt = $con->prepare("SELECT * FROM expenses WHERE id_user = $userID ORDER BY id_expenses DESC");
@@ -125,7 +124,7 @@ class MuestraGastos{
 
 		$respuesta =  $stmt -> fetchall();
 
-        return $respuesta;
+    return $respuesta;
 
 		$stmt->close();
 		$stmt = null;

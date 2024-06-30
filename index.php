@@ -274,19 +274,21 @@
 
     //pluing para eliminar clases en las listas de gastos
 
-    function eliminarClases(){
-      let idActual = document.getElementById("idActual").value;
-      let idTabla = document.getElementById("idTabla").value;
-        if (idActual != idTabla) {
-          document.getElementById('sectionGastosList').classList.remove('content')
-          document.getElementById('sectionGastosList').classList.add('d-none');
-        } else {
-          document.getElementById('sectionGastosList').classList.remove('d-none')
-          document.getElementById('sectionGastosList').classList.add('content');
-        }
-    }
+    // function eliminarClases(){
+    //   let idActual = document.getElementById("idActual").value;
+    //   let idTabla = document.getElementById("idTabla").value;
+    //     if (idActual != idTabla) {
+    //       document.getElementById('sectionGastosList').classList.remove('content');
+    //       document.getElementById('alertaNOdata').classList.remove('d-none');
+    //       document.getElementById('sectionGastosList').classList.add('d-none');
+    //     } else {
+    //       document.getElementById('sectionGastosList').classList.remove('d-none');
+    //       document.getElementById('sectionGastosList').classList.add('content');
+    //       document.getElementById('alertaNOdata').classList.add('d-none');
+    //     }
+    // }
 
-    eliminarClases();
+    //eliminarClases();
 
 </script>
 </body>

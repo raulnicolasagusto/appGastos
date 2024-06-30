@@ -99,24 +99,10 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
 </section>
 <!-- fin charts -->
-<?php
 
 
 
-                // if ($userID !== $data[0]['id_user']) {
-
-                //     echo '<div class="alert alert-danger">
-                //     <strong>Todavia no hay gastos en este periodo.</strong>
-                //           </div>';
-                //           echo $data[0]['id_user'];
-
-                //   }else{
-
-                //   }
-     ?>
-
-
- <section class="content" id="sectionGastosList" >
+ <section class="content" >
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -128,7 +114,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
               <div class="card-body">
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" >Agregar Gasto</button>
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover" id="sectionGastosList">
                 <thead>
                 <tr>
 
@@ -282,6 +268,17 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
               </tbody>
                 </table>
+
+                <?php
+
+                    if (empty($data)) {
+                    echo '<div class="alert alert-danger" id="alertaNOdata">
+                                    <strong>Todavia no hay gastos en este periodo.</strong>
+                                </div>';
+                    }
+
+                ?>
+
               </div>
               <!-- /.card-body -->
             </div>
