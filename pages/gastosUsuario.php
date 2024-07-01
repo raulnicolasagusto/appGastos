@@ -4,24 +4,12 @@
 $userID = $_SESSION['id_user'];
 $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
+
+
+
 ?>
 
-<?php
-    if (isset($_POST['nombreGasto'])) {
 
-    echo'<script>
-                        Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Gastos Agregado",
-                        showConfirmButton: false,
-                        timer: 2000
-                      });
-        </script>' ;
-
-
-  }
-?>
 
 
  <!-- Main content -->
@@ -274,10 +262,21 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                     if (empty($data)) {
                     echo '<div class="alert alert-danger" id="alertaNOdata">
                                     <strong>Todavia no hay gastos en este periodo.</strong>
-                                </div>';
+                          </div>';
                     }
 
                 ?>
+
+<?php
+    if (isset($_POST['nombreGasto'])) {
+
+    $add = AgregarGastos::agregaGasto($con,$userID);
+
+
+
+
+  }
+?>
 
               </div>
               <!-- /.card-body -->

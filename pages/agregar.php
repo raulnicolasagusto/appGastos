@@ -19,36 +19,37 @@
             <div class="form-group">
               <label for="">Monto</label>
               <input name="montoGasto" type="number" class="form-control" id="montoGasto" >
-              <small id="nombreGasto" class="form-text text-muted">Monto del gasto</small>
+              <small id="montoGasto" class="form-text text-muted">Monto del gasto</small>
             </div>
             <div class="form-group">
               <label for="">Fecha del Gasto</label>
-              <input name="nombreGasto" type="date" class="form-control" id="nombreGasto" >
-              <small id="nombreGasto" class="form-text text-muted">Fecha del gasto</small>
+              <input name="fechaGasto" type="date" class="form-control" id="fechaGasto" >
+              <small id="fechaGasto" class="form-text text-muted">Fecha del gasto</small>
             </div>
             <div class="form-group">
               <label for="">Periodo/Cuota</label>
-              <input name="nombreGasto" type="text" class="form-control" id="nombreGasto" >
-              <small id="nombreGasto" class="form-text text-muted">Periodo o Cuota del gasto (dejar vacio si no corresponde)</small>
+              <input name="cuotaGasto" type="text" class="form-control" id="cuotaGasto" >
+              <small id="cuotaGasto" class="form-text text-muted">Periodo o Cuota del gasto (dejar vacio si no corresponde)</small>
             </div>
             <div class="form-group">
                         <label>El gasto es fijo o Variable</label>
-                  <select class="form-control">
-                    <option>Fijo</option>
-                    <option>Variable</option>
+                  <select name ="tipoGasto"class="form-control">
+                    <option value="0">Fijo</option>
+                    <option value="1">Variable</option>
                   </select>
             </div>
             <div class="form-group">
                   <label>El gasto es Compartido con alguien mas o no?</label>
-                  <select class="form-control">
-                    <option>Gasto no compartido</option>
-                    <option>Gasto compartido</option>
+                  <select name="esCompartido" class="form-control">
+                    <option value="0">Gasto NO compartido</option>
+                    <option value="1">Gasto compartido</option>
                   </select>
             </div>
             <div class="form-group">
                   <label>Observacion del gasto</label>
-                  <textarea class="form-control" rows="3" placeholder="Escriba aqui ..."></textarea>
+                  <textarea name="obsGasto" class="form-control" rows="3" placeholder="Escriba aqui ..."></textarea>
             </div>
+
 
 
       </div>

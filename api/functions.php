@@ -131,3 +131,68 @@ class MuestraGastos{
     }
 }
 
+//Agregar Gasto
+
+  class AgregarGastos{
+
+    static public function agregaGasto($con, $userID){
+
+      $nameExp = $_POST["nombreGasto"];
+      $amountExp = $_POST["montoGasto"];
+      // $amountExp = $_POST["montoGasto"];
+      $dateExp = $_POST["fechaGasto"];
+      $pediodExp = $_POST["cuotaGasto"];
+      $typeExp = $_POST["tipoGasto"];
+      $sharedExp = $_POST["esCompartido"];
+      $obsExp = $_POST["obsGasto"];
+
+
+      $table = "expenses";
+
+      $query = $con->prepare("INSERT INTO $table(id_user, name_expenses, amount_expenses, date_expenses, period_expenses, costType_expenses, shared_expenses, obs_expenses)
+                VALUES(:idTabla, :nameExp, :amountExp, :dateExp, :pediodExp, :typeExp, :sharedExp, :obsExp )");
+
+      $query->bindParam(':idTabla', $userID);
+      $query->bindParam(':nameExp', $nameExp);
+      $query->bindParam(':amountExp', $amountExp);
+      $query->bindParam(':dateExp', $dateExp);
+      $query->bindParam(':pediodExp', $pediodExp);
+      $query->bindParam(':typeExp', $typeExp);
+      $query->bindParam(':sharedExp', $sharedExp);
+      $query->bindParam(':obsExp', $obsExp);
+
+      $query->execute();
+
+      // echo $nameExp . "</br>" ;
+      // echo $amountExp. "</br>" ;
+      // echo $dateExp. "</br>" ;
+      // echo $pediodExp. "</br>" ;
+      // echo $typeExp. "</br>" ;
+      // echo $sharedExp. "</br>" ;
+      // echo $obsExp. "</br>" ;
+
+      echo'<script>
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Gastos Agregado",
+                    showConfirmButton: false,
+                    timer: 2000
+                              });
+
+
+                  if (window.history.replaceState){
+
+                    window.history.replaceState( null, null, window.location.href );
+                    function redireccionarPagina() {
+                      window.location = "http://localhost:3000/index.php?u=usuario1";
+                      }
+                      setTimeout("redireccionarPagina()", 2500);
+
+                    }
+
+          </script>' ;
+
+    }
+
+  }
