@@ -1,6 +1,8 @@
 <!-- Modal Agregar -->
 
-<?php require('agregar.php');
+<?php
+require('agregar.php');
+
 $userID = $_SESSION['id_user'];
 $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
@@ -248,9 +250,10 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
                    ?>
                   </td>
-                  <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1">Editar</button>
+                  <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>">Editar</button>
                   <button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button>
                   </td>
+                  <?php require('editar.php');?>
                 </tr>
                     <?php } ?>
 
@@ -275,6 +278,10 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
 
 
+  }
+
+  if (isset($_POST['editarNombreGasto'])) {
+    $edit = EditarGastos::editarGasto($con);
   }
 ?>
 

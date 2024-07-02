@@ -196,3 +196,70 @@ class MuestraGastos{
     }
 
   }
+
+//Editar Gastos
+
+class EditarGastos{
+
+
+
+	static public function editarGasto($con){
+
+      $idEditar = $_POST['idEditar'];
+		  $EditNameExp = $_POST["editarNombreGasto"];
+      $EditAmountExp = $_POST["editarMontoGasto"];
+      // $amountExp = $_POST["montoGasto"];
+      $EditDateExp = $_POST["editarfechaGasto"];
+      $EditPediodExp = $_POST["editarCuotaGasto"];
+      $EditTypeExp = $_POST["editarTipoGasto"];
+      $EditSharedExp = $_POST["editarEsCompartido"];
+      $EditObsExp = $_POST["editarObsGasto"];
+
+
+      $table = "expenses";
+
+      $stmt = $con->prepare("UPDATE $table SET name_expenses = '$EditNameExp',
+                             amount_expenses = '$EditAmountExp',
+                             date_expenses = '$EditDateExp',
+                             period_expenses = '$EditPediodExp',
+                              costType_expenses = '$EditTypeExp',
+                              shared_expenses = '$EditSharedExp',
+                              obs_expenses = '$EditObsExp'
+                               WHERE id_expenses='$idEditar'" );
+
+      $stmt ->execute();
+
+      echo'<script>
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Gasto editado con exito!",
+                    showConfirmButton: false,
+                    timer: 2000
+                              });
+
+
+                  if (window.history.replaceState){
+
+                    window.history.replaceState( null, null, window.location.href );
+                    function redireccionarPagina() {
+                      window.location = "http://localhost:3000/index.php?u=usuario1";
+                      }
+                      setTimeout("redireccionarPagina()", 2500);
+
+                    }
+
+          </script>' ;
+		// echo $EditNameExp . "</br>";
+		// echo $EditAmountExp . "</br>";
+		// echo $EditDateExp . "</br>";
+		// echo $EditPediodExp . "</br>";
+		// echo $EditTypeExp . "</br>";
+    // echo $EditSharedExp . "</br>";
+    // echo $EditObsExp . "</br>";
+
+		}
+
+
+
+	}
