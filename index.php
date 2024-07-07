@@ -279,7 +279,7 @@
               Swal.fire({
               title: "Estas seguro que desea eliminar este gasto?",
               text: "No podra revertir este cambio!",
-              icon: "warning",
+              icon: "",
               showCancelButton: true,
               confirmButtonColor: "#3085d6",
               cancelButtonColor: "#d33",
