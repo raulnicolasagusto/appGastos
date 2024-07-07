@@ -158,6 +158,7 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -272,6 +273,40 @@
       options: areaChartOptions
     })
 
+    //Sweet alert funcion alerta eliminar gasto
+
+    function alertaEliminar(cod){
+              Swal.fire({
+              title: "Estas seguro que desea eliminar este gasto?",
+              text: "No podra revertir este cambio!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Si, Eliminarlo!"
+      }).then((result) => {
+              if (result.isConfirmed) {
+                eliminarPHP(cod);
+              }
+      });
+    }
+
+    function eliminarPHP(cod){
+      parametros = {id: cod};
+      $.ajax({
+        data: parametros,
+        url: "eliminar.php",
+        type:"POST",
+        beforeSend: function(){},
+        success: function(){
+          Swal.fire(
+                  "Eliminado", "El registro ha sido eliminado.", "success",
+                ).then((result)=>{
+                  window.location.href = "http://localhost:3000/index.php?u=usuario1";
+                });
+        }
+      })
+    }
     //pluing para eliminar clases en las listas de gastos
 
     // function eliminarClases(){

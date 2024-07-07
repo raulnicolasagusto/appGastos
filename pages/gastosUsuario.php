@@ -251,7 +251,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                    ?>
                   </td>
                   <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>">Editar</button>
-                  <button type="button"class="btn btn-outline-danger btn-sm">Eliminar</button>
+                  <a  onclick='alertaEliminar(<?php echo $item["id_expenses"]; ?>);' type="button"class="btn btn-outline-danger btn-sm">Eliminar</a >
                   </td>
                   <?php require('editar.php');?>
                 </tr>
@@ -271,6 +271,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                 ?>
 
 <?php
+  //AGREGAR GASTO
     if (isset($_POST['nombreGasto'])) {
 
     $add = AgregarGastos::agregaGasto($con,$userID);
@@ -279,7 +280,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
 
   }
-
+ //EDITAR GASTO
   if (isset($_POST['editarNombreGasto'])) {
     $edit = EditarGastos::editarGasto($con);
   }
@@ -293,62 +294,3 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
             </div>
             </div>
  <!-- FIN Main content -->
-
-
-
-
- <!--
-  <div class="content-wrapper">
-    <div class="card">
-        <div id="miDiv" class="text-center">
-            <h1>Control Gastos Anabel</h1>
-            <h5>Presupuesto del mes Actual: $500.000</h5>
-            <table class="table table-success table-striped">
-            <thead>
-                <tr>
-
-                  <th scope="col">Gasto/Compra</th>
-                  <th scope="col">Monto</th>
-                  <th scope="col">Cuota</th>
-                  <th scope="col">Tipo de Gasto</th>
-                  <th scope="col">Compartido</th>
-                  <th scope="col">Observacion</th>
-                  <th scope="col">Editar/Eliminar</th>
-                </tr>
-            </thead>
-              <tbody>
-                <tr>
-                  <td>Alquiler</td>
-                  <td>$290000</td>
-                  <td>no</td>
-                  <td>Fijo</td>
-                  <td>si</td>
-                  <td>Alquiler del mes de Junio</td>
-                  <td style><button type="button" class="btn btn-success btn-sm mr-1">Editar</button><button type="button"class="btn btn-danger btn-sm">Eliminar</button></td>
-                </tr>
-                <tr>
-                 <td>Crema Rishis</td>
-                  <td>$45000</td>
-                  <td>1/4</td>
-                  <td>Variable</td>
-                  <td>no</td>
-                  <td>Cremas para cara y cuerpo</td>
-                  <td style><button type="button" class="btn btn-success btn-sm mr-1">Editar</button><button type="button"class="btn btn-danger btn-sm">Eliminar</button></td>
-                </tr>
-                <tr>
-                 <td>Mercaderia Carrefour</td>
-                  <td>$160000</td>
-                  <td>1/3</td>
-                  <td>Variable</td>
-                  <td>si</td>
-                  <td>Compras del mes de Junio</td>
-                  <td style><button type="button" class="btn btn-success btn-sm mr-1">Editar</button><button type="button"class="btn btn-danger btn-sm">Eliminar</button></td>
-                </tr>
-
-              </tbody>
-            </table>
-        </div>
-    </div>
-  </div>
-  -->
-

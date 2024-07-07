@@ -263,3 +263,40 @@ class EditarGastos{
 
 
 	}
+
+  //ELiminar Gasto
+
+// class EliminarGasto{
+
+
+
+// 	static public function eliminarGasto($con){
+
+//        	$id_delete = (isset($_GET['idDelete']))?$_GET['idDelete']:"";
+
+// 		$stmt = $con->prepare("DELETE FROM expenses WHERE id_expenses = $id_delete" );
+// 		$stmt ->execute();
+
+// 		echo '<script>
+
+
+// 		if (window.history.replaceState){
+
+// 		window.history.replaceState( null, null, window.location.href );
+// 		function redireccionarPagina() {
+// 			window.location = "http:/index.php?u=usuario1";
+// 		  }
+// 		  setTimeout("redireccionarPagina()", 1000);
+
+// 		}
+
+
+
+// 		</script>';
+
+
+// 	}
+
+
+// }
+
