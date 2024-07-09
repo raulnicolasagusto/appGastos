@@ -160,6 +160,7 @@
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 <script>
+
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -177,7 +178,6 @@
   });
 </script>
 <script>
-
       //GRAFICOS-------------
     //- DONUT CHART -
     //-------------
@@ -324,6 +324,28 @@
     // }
 
     //eliminarClases();
+
+//Funciones para eleccion de medios de pago en agregar y editar gastos
+
+function filter_options(){
+	if (typeof $("#choice1").data('options') === "undefined") {
+       $("#choice1").data('options', $('#choice2 option').clone());
+  }
+    var id = $("#choice1").val();
+    var options = $("#choice1").data('options').filter('[data-option=' + id + ']');
+    $('#choice2').html(options);
+}
+
+$(function () {
+		//Ejecutar el filtro la primera vez
+		filter_options();
+
+    //actualizar al cambiar el factor
+    $("#choice1").change(function () {
+	    filter_options();
+		});
+
+});
 
 </script>
 </body>

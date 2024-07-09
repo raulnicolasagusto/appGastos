@@ -46,6 +46,31 @@
                   </select>
             </div>
             <div class="form-group">
+                  <label>Medio de pago</label>
+                  <select name="MedioDePago" class="form-control" id="choice1">
+                      <option value="S">Efectivo</option>
+                      <option  value="O">Tarjeta de credito</option>
+                      <option  value="AF">Tarjeta de debito</option>
+                      <option  value="AB">Transferencia</option>
+                  </select>
+                    <br>
+                    <label>Banco/Plataforma</label>
+                  <select name="Plataforma" class="form-control" id="choice2">
+                  <!-- <option data-option="S"   value="01">Efectivo</option> -->
+                    <option data-option="O"   value="01">Banco Galicia VISA</option>
+                    <option data-option="O"   value="02">Banco Santander VISA</option>
+                    <option data-option="O"    value="03">Brubank VISA</option>
+                    <option data-option="O"    value="04">Mercado Pago Credito</option>
+                    <option data-option="AF"    value="AF1">Galicia</option>
+                    <option data-option="AF"   value="AF2">Santander</option>
+                    <option data-option="AF"    value="AF3">Brubank</option>
+                    <option data-option="AF"   value="AF4">Mercado Pago</option>
+                    <option data-option="AB"   value="AF4">Banco galicia</option>
+                    <option data-option="AB"   value="AF4">Banco Santander</option>
+                    <option data-option="AB"   value="AF4">Banco Brubank</option>
+                  </select>
+            </div>
+            <div class="form-group">
                   <label>Observacion del gasto</label>
                   <textarea name="obsGasto" class="form-control" rows="3" placeholder="Escriba aqui ..."></textarea>
             </div>
