@@ -327,6 +327,7 @@
 
 //Funciones para eleccion de medios de pago en agregar y editar gastos
 
+
 function filter_options(){
 	if (typeof $("#choice1").data('options') === "undefined") {
        $("#choice1").data('options', $('#choice2 option').clone());
@@ -346,6 +347,9 @@ $(function () {
 		});
 
 });
+
+
+
 
 </script>
 </body>

@@ -98,12 +98,12 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                <h3 class="card-title">Se muestran los gastos del mes XXX</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" >Agregar Gasto</button>
+              <!-- Button Agregar modal -->
+              <button  onclick="activaFuncionOnclickAgregar()" type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1 mb-2" data-toggle="modal" data-target="#exampleModal" >Agregar Gasto</button>
                 <table id="example2" class="table table-bordered table-hover" id="sectionGastosList">
                 <thead>
                 <tr>
@@ -114,6 +114,8 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                   <th scope="col">Cuota</th>
                   <th scope="col">Tipo de Gasto</th>
                   <th scope="col">Compartido</th>
+                  <th scope="col">Medio de pago</th>
+                  <th scope="col">Plataforma de pago</th>
                   <th scope="col">Observacion</th>
                   <th scope="col">Editar/Eliminar</th>
                 </tr>
@@ -236,6 +238,44 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
                   if ($userID === $item['id_user']) {
 
+                    if ($item['paymentMethod_expenses'] === 0) {
+                      echo "Efectivo";
+                   }else{
+
+                    echo $item['paymentMethod_expenses'];
+                   }
+
+                  }else{
+
+                    echo "No agregado";
+                  }
+
+                   ?>
+                  </td>
+                  <td>
+                  <?php
+
+                  if ($userID === $item['id_user']) {
+
+                    if ($item['platformPayment_expenses'] === 0) {
+                      echo "Efectivo";
+                }else{
+
+                  echo $item['platformPayment_expenses'];
+                }
+
+                  }else{
+
+                    echo "No agregado";
+                  }
+
+                   ?>
+                  </td>
+                  <td>
+                  <?php
+
+                  if ($userID === $item['id_user']) {
+
                     if ($item['obs_expenses'] === '') {
                       echo "No agregado";
                 }else{
@@ -250,7 +290,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
                    ?>
                   </td>
-                  <td><button type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>">Editar</button>
+                  <td><button id="" onclick="" type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>">Editar</button>
                   <a  onclick='alertaEliminar(<?php echo $item["id_expenses"]; ?>);' type="button"class="btn btn-outline-danger btn-sm">Eliminar</a >
                   </td>
                   <?php require('editar.php');?>

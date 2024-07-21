@@ -111,14 +111,14 @@ class InicioSesion{
 }
 
 
-//Mosotrar Gastos
+//Mostrar Gastos
 
 class MuestraGastos{
 
 	static public function mostrarRegistroGastos($con,$userID,){
 
 
-		$stmt = $con->prepare("SELECT * FROM expenses WHERE id_user = $userID ORDER BY id_expenses DESC");
+		$stmt = $con->prepare("SELECT * FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) ORDER BY id_expenses DESC ");
 
 		$stmt -> execute();
 
@@ -145,12 +145,15 @@ class MuestraGastos{
       $typeExp = $_POST["tipoGasto"];
       $sharedExp = $_POST["esCompartido"];
       $obsExp = $_POST["obsGasto"];
+      $paymentMethod = $_POST["medioDePago"];
+      $platformPayment = $_POST["plataforma"];
+
 
 
       $table = "expenses";
 
-      $query = $con->prepare("INSERT INTO $table(id_user, name_expenses, amount_expenses, date_expenses, period_expenses, costType_expenses, shared_expenses, obs_expenses)
-                VALUES(:idTabla, :nameExp, :amountExp, :dateExp, :pediodExp, :typeExp, :sharedExp, :obsExp )");
+      $query = $con->prepare("INSERT INTO $table(id_user, name_expenses, amount_expenses, date_expenses, period_expenses, costType_expenses, shared_expenses, obs_expenses, paymentMethod_expenses, platformPayment_expenses)
+                VALUES(:idTabla, :nameExp, :amountExp, :dateExp, :pediodExp, :typeExp, :sharedExp, :obsExp, :paymentMethod, :platformPayment )");
 
       $query->bindParam(':idTabla', $userID);
       $query->bindParam(':nameExp', $nameExp);
@@ -160,6 +163,8 @@ class MuestraGastos{
       $query->bindParam(':typeExp', $typeExp);
       $query->bindParam(':sharedExp', $sharedExp);
       $query->bindParam(':obsExp', $obsExp);
+      $query->bindParam(':paymentMethod', $paymentMethod);
+      $query->bindParam(':platformPayment', $platformPayment);
 
       $query->execute();
 
@@ -214,6 +219,8 @@ class EditarGastos{
       $EditTypeExp = $_POST["editarTipoGasto"];
       $EditSharedExp = $_POST["editarEsCompartido"];
       $EditObsExp = $_POST["editarObsGasto"];
+      $EditPaymentMethod = $_POST["editarMedioDePago"];
+      $editPlatformPayment = $_POST["editarPlataforma"];
 
 
       $table = "expenses";
@@ -224,7 +231,9 @@ class EditarGastos{
                              period_expenses = '$EditPediodExp',
                               costType_expenses = '$EditTypeExp',
                               shared_expenses = '$EditSharedExp',
-                              obs_expenses = '$EditObsExp'
+                              obs_expenses = '$EditObsExp',
+                              paymentMethod_expenses = '$EditPaymentMethod',
+                              platformPayment_expenses = '$editPlatformPayment'
                                WHERE id_expenses='$idEditar'" );
 
       $stmt ->execute();
@@ -263,6 +272,11 @@ class EditarGastos{
 
 
 	}
+
+//CONECTAR GASTOS DE USUARIOS
+
+
+
 
   //ELiminar Gasto
 

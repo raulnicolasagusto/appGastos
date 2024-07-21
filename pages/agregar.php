@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <!-- ========== Start FORM ========== -->
-        <form action="#" method="post">
+        <form class="formAgregar" id="formAgregar"action="#" method="post">
             <div class="form-group">
               <label for="">Nombre del Gasto</label>
               <input name="nombreGasto" type="text" class="form-control" id="nombreGasto" >
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                   <label>Medio de pago</label>
-                  <select name="MedioDePago" class="form-control" id="choice1">
+                  <select name="medioDePago" class="form-control" id="choice1">
                       <option value="S">Efectivo</option>
                       <option  value="O">Tarjeta de credito</option>
                       <option  value="AF">Tarjeta de debito</option>
@@ -55,7 +55,7 @@
                   </select>
                     <br>
                     <label>Banco/Plataforma</label>
-                  <select name="Plataforma" class="form-control" id="choice2">
+                  <select name="plataforma" class="form-control" id="choice2">
                   <!-- <option data-option="S"   value="01">Efectivo</option> -->
                     <option data-option="O"   value="01">Banco Galicia VISA</option>
                     <option data-option="O"   value="02">Banco Santander VISA</option>
