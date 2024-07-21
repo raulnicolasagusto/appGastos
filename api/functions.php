@@ -275,42 +275,64 @@ class EditarGastos{
 
 //CONECTAR GASTOS DE USUARIOS
 
+//CONTAR GASTOS
+
+class CuentaGastos{
+
+	static public function cuentaRegistroGastos($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT count(*) FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchColumn();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
+
+class SumaGastos{
+
+	static public function sumaRegistroGastos($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT SUM(amount_expenses) FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetch();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
 
 
 
-  //ELiminar Gasto
+//SUMA GASTOS ANUAL
 
-// class EliminarGasto{
+class SumaGastosAnual{
 
-
-
-// 	static public function eliminarGasto($con){
-
-//        	$id_delete = (isset($_GET['idDelete']))?$_GET['idDelete']:"";
-
-// 		$stmt = $con->prepare("DELETE FROM expenses WHERE id_expenses = $id_delete" );
-// 		$stmt ->execute();
-
-// 		echo '<script>
+	static public function sumaAnualRegistroGastos($con,$userID){
 
 
-// 		if (window.history.replaceState){
+		$stmt = $con->prepare("SELECT SUM(amount_expenses) FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) ORDER BY id_expenses DESC ");
 
-// 		window.history.replaceState( null, null, window.location.href );
-// 		function redireccionarPagina() {
-// 			window.location = "http:/index.php?u=usuario1";
-// 		  }
-// 		  setTimeout("redireccionarPagina()", 1000);
+		$stmt -> execute();
 
-// 		}
+		$respuesta =  $stmt -> fetch();
 
+    return $respuesta;
 
+		$stmt->close();
+		$stmt = null;
+    }
+}
 
-// 		</script>';
-
-
-// 	}
-
-
-// }
 

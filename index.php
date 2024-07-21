@@ -9,6 +9,22 @@
 
 ?>
 
+<?php
+
+$userID = $_SESSION['id_user'];
+$userName = $_SESSION['name_user'];
+$userLastName = $_SESSION['lastName_user'];
+//Cuantidad de compras/gastos
+$data2 = CuentaGastos::cuentaRegistroGastos($con,$userID);
+//suma mensual
+$data3 = SumaGastos::sumaRegistroGastos($con,$userID);
+//suma Anual
+$data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,17 +201,15 @@
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
+          'Tarjeta',
+          'Efectivo',
+          'Debito',
+
       ],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          data: [600,100,300],
+          backgroundColor : [ '#00a65a', '#00c0ef','#00ef04']
         }
       ]
     }

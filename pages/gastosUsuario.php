@@ -98,7 +98,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Se muestran los gastos del mes XXX</h3>
+                <h3 class="card-title">Se muestran los gastos del mes <strong><?php echo date("M,Y") . ' ';?></strong></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -113,11 +113,11 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                   <th scope="col">Fecha</th>
                   <th scope="col">Cuota</th>
                   <th scope="col">Tipo de Gasto</th>
-                  <th scope="col">Compartido</th>
+                  <th scope="col">Comp</th>
                   <th scope="col">Medio de pago</th>
-                  <th scope="col">Plataforma de pago</th>
+                  <th scope="col">Plataf Pago</th>
                   <th scope="col">Observacion</th>
-                  <th scope="col">Editar/Eliminar</th>
+                  <th scope="col">Opciones</th>
                 </tr>
             </thead>
               <tbody>
@@ -146,7 +146,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
                       if ($userID === $item['id_user']) {
 
-                        echo  $item['amount_expenses'];
+                        echo '$'. number_format($item['amount_expenses'], 1, '.');
 
                       }else{
 
@@ -220,10 +220,10 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
                   if ($userID === $item['id_user']) {
 
                     if ($item['shared_expenses'] === 0) {
-                      echo "Comun, no compartido";
+                      echo "NO";
                 }else{
 
-                      echo "Compartido";
+                      echo "SI";
                 }
 
                   }else{
@@ -290,10 +290,14 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
 
                    ?>
                   </td>
-                  <td><button id="" onclick="" type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>">Editar</button>
-                  <a  onclick='alertaEliminar(<?php echo $item["id_expenses"]; ?>);' type="button"class="btn btn-outline-danger btn-sm">Eliminar</a >
+
+                  <td>
+                  <button id="" onclick="" type="button" class="btn btn-outline-success btn-sm btn-sm mr-1" data-toggle="modal" data-target="#modalEditar_<?php echo $item['id_expenses'];?>"><i class="nav-icon fas fa-edit"></i></button>
+                  <a onclick='alertaEliminar(<?php echo $item["id_expenses"]; ?>);' type="button"class="btn btn-outline-danger btn-sm"><i class="nav-icon fas fa-trash"></i></a >
                   </td>
+
                   <?php require('editar.php');?>
+
                 </tr>
                     <?php } ?>
 
