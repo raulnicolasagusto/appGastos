@@ -362,7 +362,7 @@ $(function () {
 
 });
 
-
+new DataTable('#example2');
 
 
 </script>

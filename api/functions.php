@@ -335,4 +335,34 @@ class SumaGastosAnual{
     }
 }
 
+// Traducion de fecha actual en texto
+function fechaTraducida(){
 
+  $date = date("M");
+
+  if ($date === 'Jul') {
+    echo "Julio";
+  }elseif($date === 'Jan'){
+    echo "Enero";
+  }elseif($date === 'Feb'){
+    echo "Febrero";
+  }elseif($date === 'Mar'){
+    echo "Marzo";
+  }elseif($date === 'Apr'){
+    echo "Abril";
+  }elseif($date === 'May'){
+    echo "Mayo";
+  }elseif($date === 'Jun'){
+    echo "Junio";
+  }elseif($date === 'Aug'){
+    echo "Agosto";
+  }elseif($date === 'Sep'){
+    echo "Septiembre";
+  }elseif($date === 'Oct'){
+    echo "Octubre";
+  }elseif($date === 'Nov'){
+    echo "Noviembre";
+  }elseif($date === 'Dec'){
+    echo "Diciembre";
+  }
+}

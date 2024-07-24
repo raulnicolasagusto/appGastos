@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
               <label for="">Monto</label>
-              <input name="montoGasto" type="number" class="form-control" id="montoGasto" >
+              <input step="0.1" name="montoGasto" type="number" class="form-control" id="montoGasto" >
               <small id="montoGasto" class="form-text text-muted">Monto del gasto</small>
             </div>
             <div class="form-group">

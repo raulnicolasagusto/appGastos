@@ -5,10 +5,6 @@ require('agregar.php');
 
 $userID = $_SESSION['id_user'];
 $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
-
-
-
-
 ?>
 
 
@@ -29,7 +25,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
               <!-- DONUT CHART -->
               <div class="card card-danger">
                 <div class="card-header">
-                  <h3 class="card-title">Donut Chart</h3>
+                  <h3 class="card-title">Tipos de gastos de <?php fechaTraducida();?></h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -98,13 +94,13 @@ $data = MuestraGastos::mostrarRegistroGastos($con,$userID);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Se muestran los gastos del mes <strong><?php echo date("M,Y") . ' ';?></strong></h3>
+                <h3 class="card-title">Se muestran los gastos del mes de <strong><?php fechaTraducida();?></strong></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <!-- Button Agregar modal -->
               <button  onclick="activaFuncionOnclickAgregar()" type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1 mb-2" data-toggle="modal" data-target="#exampleModal" >Agregar Gasto</button>
-                <table id="example2" class="table table-bordered table-hover" id="sectionGastosList">
+                <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
 

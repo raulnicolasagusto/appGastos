@@ -48,7 +48,7 @@
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
-                <h3 class="widget-user-username">Gastos totales <?php echo date("M.y") . ' ';?>de:</h3>
+                <h3 class="widget-user-username">Gastos totales en <?php fechaTraducida();?> de:</h3>
                 <h5 class="widget-user-desc"><?php echo $userName . ' ' .$userLastName;?></h5>
               </div>
               <div class="widget-user-image">
@@ -59,7 +59,7 @@
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
                       <h5 class="description-header"><?php echo '$'. number_format($data3[0], 1, '.');?></h5>
-                      <span class="description-text">Son los Gastos Mensuales</span>
+                      <span class="description-text">Son los Gastos de <?php fechaTraducida(); ?> </span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -67,7 +67,7 @@
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
                       <h5 class="description-header"><?php echo '$'. number_format($data4[0], 1, '.');?></h5>
-                      <span class="description-text">SOn los Gastos del <?php echo date("Y") . ' ';?></span>
+                      <span class="description-text">Son los Gastos del <?php echo date("Y") . ' ';?></span>
                     </div>
                     <!-- /.description-block -->
                   </div>

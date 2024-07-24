@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
               <label for="">Monto</label>
-              <input value="<?php echo $item['amount_expenses']; ?>" name="editarMontoGasto" type="number" class="form-control" id="editarMontoGasto" >
+              <input step="0.1" value="<?php echo $item['amount_expenses']; ?>" name="editarMontoGasto" type="number" class="form-control" id="editarMontoGasto" >
               <small id="editarMontoGasto" class="form-text text-muted">Monto del gasto</small>
             </div>
             <div class="form-group">
