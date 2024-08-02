@@ -46,6 +46,7 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -178,6 +179,7 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
 <
 <script>
 
@@ -364,6 +366,8 @@ $(function () {
       "responsive": true,
     });
   });
+
+
 
 </script>
 </body>
