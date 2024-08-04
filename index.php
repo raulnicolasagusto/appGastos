@@ -45,7 +45,7 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+  <link rel="stylesheet" href="cdn.datatables.net/2.1.2/css/dataTables.dataTables.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -148,6 +148,43 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 
 
 </div>
+
+<script>
+
+  // $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//     $('#example2').DataTable({
+//       "paging": true,
+//       "lengthChange": false,
+//       "searching": false,
+//       "ordering": true,
+//       "info": true,
+//       "autoWidth": false,
+//       "responsive": true,
+//     });
+//   });
+
+$(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example1').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+
+</script>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
@@ -162,24 +199,24 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard3.js"></script>
+<!-- <script src="dist/js/pages/dashboard3.js"></script> -->
 <!-- DataTables  & Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+ <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+ <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 <script src="../../plugins/jszip/jszip.min.js"></script>
 <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
 <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+ <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-
+<!-- <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script> -->
+<!-- <script src="cdn.datatables.net/2.1.2/css/dataTables.dataTables.min.css"></script> -->
 <
 <script>
 
@@ -351,22 +388,113 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 
 // });
 
-$(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+// $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//     $('#example2').DataTable({
+//       "paging": true,
+//       "lengthChange": false,
+//       "searching": false,
+//       "ordering": true,
+//       "info": true,
+//       "autoWidth": false,
+//       "responsive": true,
+//     });
+//   });
 
+// $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//     $('#example2').DataTable({
+//       "paging": true,
+//       "lengthChange": false,
+//       "searching": false,
+//       "ordering": true,
+//       "info": true,
+//       "autoWidth": false,
+//       "responsive": true,
+//     });
+//   });
+
+
+$(document).ready(function () {
+  $('#example2').DataTable({
+    "columnDefs": [{
+      "targets": 0
+    }],
+    dom: 'Bftip',
+    buttons: [
+        'copy', 'excel', 'pdf', 'csv','print','colvis'
+    ],
+    language: {
+
+      "sProcessing": "Procesando...",
+      "sLengthMenu": "Mostrar _MENU_ resultados",
+      "sZeroRecords": "No se encontraron resultados",
+      "sEmptyTable": "Ningun dato disponible en esta tabla",
+      "sInfo": "Mostrando resultados _START_-_END_ de  _TOTAL_",
+      "sInfoEmpty": "Mostrando resultados del 0 al 0 de un total de 0 registros",
+      "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+      "sSearch": "Buscar ",
+      "sLoadingRecords": "Cargando...",
+      "oPaginate": {
+        "sFirst": "Primero",
+        "sLast": "Ultimo",
+        "sNext": "Siguiente",
+        "sPrevious": "Anterior"
+      },
+      "iDisplayLength": 50,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "processing": true,
+      "serverSide": true,
+    }
+  });
+});
+
+  // $(document).ready( function () {
+	// 		$('#myTable')
+	// 			.addClass( 'nowrap' )
+	// 			.dataTable( {
+	// 				responsive: true,
+	// 				columnDefs: [
+	// 					{
+	// 						target: 4,
+	// 						render: DataTable.render.date(),
+	// 					},
+	// 					{
+	// 						target: 5,
+	// 						render: DataTable.render.number(null, null, 0, '$'),
+	// 					},
+	// 					{
+	// 						targets: [3, 4 ,5],
+	// 						className: 'dt-body-right'
+	// 					}
+	// 				]
+	// 			} );
+
+	// 		var browser = $('button[data-tab="tab-browser"]');
+	// 		var npm = $('button[data-tab="tab-npm"]');
+
+	// 		browser.on('click', function () {
+	// 			$('div.tab-browser').css('display', 'block');
+	// 			$('div.tab-npm').css('display', 'none');
+
+	// 			browser.addClass('active');
+	// 			npm.removeClass('active');
+	// 		});
+
+	// 		npm.on('click', function () {
+	// 			$('div.tab-browser').css('display', 'none');
+	// 			$('div.tab-npm').css('display', 'block');
+
+	// 			browser.removeClass('active');
+	// 			npm.addClass('active');
+	// 		});
+	// 	} );
 
 
 </script>

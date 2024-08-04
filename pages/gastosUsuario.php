@@ -100,7 +100,7 @@ $data = MuestraGastos::mostrarRegistroGastos($con, $userID);
             <div class="card-body">
               <!-- Button Agregar modal -->
               <button onclick="activaFuncionOnclickAgregar()" type="button" class="btn btn-outline-primary btn-sm btn-sm mr-1 mb-2" data-toggle="modal" data-target="#exampleModal">Agregar Gasto</button>
-              <table id="#myTable" class="table table-bordered table-hover">
+              <table id="example2" class="table table-bordered table-hover">
                 <thead>
                   <tr>
 
@@ -207,7 +207,8 @@ $data = MuestraGastos::mostrarRegistroGastos($con, $userID);
               ?>
 
             <!-- Eliminar -->
-              <h2>hola</h2>
+
+
             <!-- Eliminar -->
 
             </div>
