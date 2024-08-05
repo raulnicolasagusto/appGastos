@@ -48,10 +48,10 @@
             <div class="form-group">
                   <label>Medio de pago</label>
                   <select name="medioDePago" class="form-control" id="medioDePago">
+                      <option value="E">Efectivo</option>
                       <option  value="O">Tarjeta de credito</option>
                       <option  value="TC">Tarjeta de debito</option>
                       <option  value="T">Transferencia</option>
-                      <option value="E">Efectivo</option>
                   </select>
                     <br>
                     <label>Banco/Plataforma</label>
