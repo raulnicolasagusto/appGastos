@@ -32,7 +32,7 @@
               <small id="cuotaGasto" class="form-text text-muted">Periodo o Cuota del gasto (dejar vacio si no corresponde)</small>
             </div>
             <div class="form-group">
-                        <label>El gasto es fijo o Variable</label>
+                  <label>El gasto es fijo o Variable</label>
                   <select name ="tipoGasto"class="form-control">
                     <option value="0">Fijo</option>
                     <option value="1">Variable</option>
@@ -48,6 +48,7 @@
             <div class="form-group">
                   <label>Medio de pago</label>
                   <select name="medioDePago" class="form-control" id="medioDePago">
+                      <option id ="SeleccionOption" selected="true" disabled="disabled">Toca para seleccionar</option>
                       <option value="E">Efectivo</option>
                       <option  value="O">Tarjeta de credito</option>
                       <option  value="TC">Tarjeta de debito</option>
@@ -56,25 +57,29 @@
                     <br>
                     <label>Banco/Plataforma</label>
 
-                    <select id="plataforma1" name="plataforma1" class="form-control">
+                    <select id="plataforma1" name="plataforma1" class="d-none">
+                     <option selected="true" disabled="disabled">Toca para seleccionar</option>
                       <option data-option="E"   value="01">Ninguno</option>
                     </select>
 
-                    <select id="plataforma2" name="plataforma2" class="form-control">
+                    <select id="plataforma2" name="plataforma2" class="d-none">
+                     <option selected="true" disabled="disabled">Toca para seleccionar</option>
                       <option data-option="O"   value="01">Banco Galicia VISA</option>
                       <option data-option="O"   value="02">Banco Santander VISA</option>
                       <option data-option="O"    value="03">Brubank VISA</option>
                       <option data-option="O"    value="04">Mercado Pago Credito</option>
                     </select>
 
-                    <select  id="plataforma3" name="plataforma3" class="form-control">
+                    <select  id="plataforma3" name="plataforma3" class="d-none">
+                     <option selected="true" disabled="disabled">Toca para seleccionar</option>
                       <option data-option="TC"    value="TC1">Galicia</option>
                       <option data-option="TC"   value="TC2">Santander</option>
                       <option data-option="TC"    value="TC3">Brubank</option>
                       <option data-option="TC"   value="TC4">Mercado Pago</option>
                     </select>
 
-                    <select id="plataforma4" name="plataforma4" class="form-control">
+                    <select id="plataforma4" name="plataforma4" class="d-none">
+                      <option selected="true" disabled="disabled">Toca para seleccionar</option>
                       <option data-option="T"   value="T">Banco galicia</option>
                       <option data-option="T"   value="T">Banco Santander</option>
                       <option data-option="T"   value="T">Banco Brubank</option>

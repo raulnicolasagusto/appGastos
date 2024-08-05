@@ -350,6 +350,7 @@ $(function () {
 
   // plugin para el option de agregar gastos y editar
 
+
   let ee = document.getElementById('medioDePago');
   let p1 = document.getElementById('plataforma1');
   let p2 = document.getElementById('plataforma2');
@@ -357,9 +358,11 @@ $(function () {
   let p4 = document.getElementById('plataforma4');
 
   ee.addEventListener("change", function(){
+
       if (ee.value === 'E') {
           p1.disabled = true;
           p1.classList.remove('d-none');
+          p1.classList.add('form-control');
           p2.classList.add('d-none');
           p3.classList.add('d-none');
           p4.classList.add('d-none');
@@ -368,6 +371,7 @@ $(function () {
 
       if (ee.value === 'O') {
           p2.classList.remove('d-none');
+          p2.classList.add('form-control');
           p1.classList.add('d-none');
           p3.classList.add('d-none');
           p4.classList.add('d-none');
@@ -376,6 +380,7 @@ $(function () {
 
       if (ee.value === 'TC') {
           p3.classList.remove('d-none');
+          p3.classList.add('form-control');
           p1.classList.add('d-none');
           p4.classList.add('d-none');
           p2.classList.add('d-none');
@@ -384,6 +389,7 @@ $(function () {
 
       if (ee.value === 'T') {
           p4.classList.remove('d-none');
+          p4.classList.add('form-control');
           p1.classList.add('d-none');
           p2.classList.add('d-none');
           p3.classList.add('d-none');
