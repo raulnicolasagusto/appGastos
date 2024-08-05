@@ -350,7 +350,7 @@ $(function () {
 
   // plugin para el option de agregar gastos y editar
 
-
+  let bp = document.getElementById('bancoPlataforma');
   let ee = document.getElementById('medioDePago');
   let p1 = document.getElementById('plataforma1');
   let p2 = document.getElementById('plataforma2');
@@ -360,6 +360,7 @@ $(function () {
   ee.addEventListener("change", function(){
 
       if (ee.value === 'E') {
+          bp.classList.add('d-none');
           p1.disabled = true;
           p1.classList.remove('d-none');
           p1.classList.add('form-control');
@@ -370,6 +371,7 @@ $(function () {
       }
 
       if (ee.value === 'O') {
+          bp.classList.remove('d-none');
           p2.classList.remove('d-none');
           p2.classList.add('form-control');
           p1.classList.add('d-none');
@@ -379,6 +381,7 @@ $(function () {
       }
 
       if (ee.value === 'TC') {
+          bp.classList.remove('d-none');
           p3.classList.remove('d-none');
           p3.classList.add('form-control');
           p1.classList.add('d-none');
@@ -388,6 +391,7 @@ $(function () {
       }
 
       if (ee.value === 'T') {
+          bp.classList.remove('d-none');
           p4.classList.remove('d-none');
           p4.classList.add('form-control');
           p1.classList.add('d-none');

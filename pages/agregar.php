@@ -55,7 +55,7 @@
                       <option  value="T">Transferencia</option>
                   </select>
                     <br>
-                    <label>Banco/Plataforma</label>
+                    <label id="bancoPlataforma" class="d-none">Banco/Plataforma</label>
 
                     <select id="plataforma1" name="plataforma1" class="d-none">
                      <option selected="true" disabled="disabled">Toca para seleccionar</option>
