@@ -20,6 +20,14 @@ $data2 = CuentaGastos::cuentaRegistroGastos($con,$userID);
 $data3 = SumaGastos::sumaRegistroGastos($con,$userID);
 //suma Anual
 $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
+//suma medios de pago Efectivo
+$data5 = SumaMedioDePagoE::sumaRegistroMedioDePagoE($con,$userID);
+//suma medios de pago Tarjeta de Credito
+$data6 = SumaMedioDePagoTC::sumaRegistroMedioDePagoTC($con,$userID);
+//suma medios de pago Tarjeta de Debito
+$data7 = SumaMedioDePagoTD::sumaRegistroMedioDePagoTD($con,$userID);
+//suma medios de pago Taransferencia
+$data8 = SumaMedioDePagoTR::sumaRegistroMedioDePagoTR($con,$userID);
 
 
 
@@ -87,6 +95,7 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 
 <?php
 
+
   if (isset($_GET['u'])) {
 
 
@@ -141,12 +150,17 @@ $data4 = SumaGastosAnual::sumaAnualRegistroGastos($con,$userID);
 
 
   <!-- Main Footer -->
-  <?php
 
+  <?php
+$data5format = number_format($data4[0], 1);
+echo $data5format;
    ?>
 
-
-
+<!-- ========== Values de sumas de efectivo, tarjeta, etc ========== -->
+  <input type="hidden" name="datoEfectivo" id="datoEfectivo" value="<?php echo $data5[0][0]; ?>">
+  <input type="hidden" name="datoTarjetaC" id="datoTarjetaC" value="<?php echo $data6[0][0]; ?>">
+  <input type="hidden" name="datoTarjetaD" id="datoTarjetaD" value="<?php echo $data7[0][0]; ?>">
+  <input type="hidden" name="datoTarjetaT" id="datoTarjetaT" value="<?php echo $data8[0][0]; ?>">
 </div>
 
 <script>
@@ -224,18 +238,29 @@ $(function () {
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
+
+    let datoEfectivo = document.getElementById('datoEfectivo');
+    let datoTarjetaC = document.getElementById('datoTarjetaC');
+    let datoTarjetaD = document.getElementById('datoTarjetaD');
+    let datoTransf = document.getElementById('datoTarjetaT');
+
+
+
+
+
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Tarjeta',
+          'Tarjeta:',
           'Efectivo',
           'Debito',
+          'Transferencia',
 
       ],
       datasets: [
         {
-          data: [600,100,300],
-          backgroundColor : [ '#00a65a', '#00c0ef','#00ef04']
+          data: [datoTarjetaC.value,datoEfectivo.value,datoTarjetaD.value,datoTransf.value],
+          backgroundColor : [ '#00a65a', '#00c0ef','#6610f2','#0d6efd']
         }
       ]
     }
@@ -259,10 +284,11 @@ $(function () {
     var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
     var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels  : ['En', 'Fe', 'Mar', 'Ab', 'May', 'Jun', 'Jul','Ago', 'Sept','Oct','Nov','Dic'],
       datasets: [
         {
-          label               : 'Digital Goods',
+
+          label               : 'Debito/Transferencia',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
@@ -270,10 +296,10 @@ $(function () {
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : [0, 0, 0, 0, 0, 0, 0, datoTarjetaC.value, 0, 0, 0, 0]
         },
         {
-          label               : 'Electronics',
+          label               : 'Tarjeta de Credito',
           backgroundColor     : 'rgba(210, 214, 222, 1)',
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
@@ -281,7 +307,7 @@ $(function () {
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : [0, 0, 0, 0, 0, 0, 0, datoEfectivo.value, 0, 0, 0, 0]
         },
       ]
     }
@@ -290,17 +316,17 @@ $(function () {
       maintainAspectRatio : false,
       responsive : true,
       legend: {
-        display: false
+        display: true
       },
       scales: {
         xAxes: [{
           gridLines : {
-            display : false,
+            display : true,
           }
         }],
         yAxes: [{
           gridLines : {
-            display : false,
+            display : true,
           }
         }]
       }
@@ -348,7 +374,7 @@ $(function () {
       })
     }
 
-  // plugin para el option de agregar gastos y editar
+  // plugin para el option de agregar gastos
 
   let bp = document.getElementById('bancoPlataforma');
   let ee = document.getElementById('medioDePago');
@@ -401,6 +427,69 @@ $(function () {
       }
 
   });
+
+// plugin para el option de editar gastos
+      // let bp2 = document.getElementById('bancoPlataformaEditar');
+      // let ee2 = document.getElementById('medioDePagoEditar');
+      // let p12 = document.getElementById('plataforma1Editar');
+      // let p23 = document.getElementById('plataforma2Editar');
+      // let p33 = document.getElementById('plataforma3Editar');
+      // let p44 = document.getElementById('plataforma4Editar');
+
+      // if (ee2.value === 'E1') {
+      //         bp2.classList.add('d-none');
+      //         p12.disabled = true;
+      //         p12.classList.remove('d-none');
+      //         p12.classList.add('form-control');
+      //         p23.classList.add('d-none');
+      //         p33.classList.add('d-none');
+      //         p44.classList.add('d-none');
+      // }
+
+      // ee2.addEventListener("change", function(){
+
+      //     if (ee2.value === 'E1') {
+      //         bp2.classList.add('d-none');
+      //         p12.disabled = true;
+      //         p12.classList.remove('d-none');
+      //         p12.classList.add('form-control');
+      //         p23.classList.add('d-none');
+      //         p33.classList.add('d-none');
+      //         p44.classList.add('d-none');
+
+      //     }
+
+      //     if (ee2.value === 'O1') {
+      //       bp2.classList.remove('d-none');
+      //       p23.classList.remove('d-none');
+      //       p23.classList.add('form-control');
+      //         p12.classList.add('d-none');
+      //         p33.classList.add('d-none');
+      //         p44.classList.add('d-none');
+
+      //     }
+
+      //     if (ee2.value === 'TC1') {
+      //       bp2.classList.remove('d-none');
+      //       p33.classList.remove('d-none');
+      //       p33.classList.add('form-control');
+      //         p12.classList.add('d-none');
+      //         p44.classList.add('d-none');
+      //         p23.classList.add('d-none');
+
+      //     }
+
+      //     if (ee2.value === 'T1') {
+      //       bp2.classList.remove('d-none');
+      //       p44.classList.remove('d-none');
+      //         p44.classList.add('form-control');
+      //         p12.classList.add('d-none');
+      //         p23.classList.add('d-none');
+      //         p33.classList.add('d-none');
+
+      //     }
+
+      // });
 
     //pluing para eliminar clases en las listas de gastos
 

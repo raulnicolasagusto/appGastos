@@ -300,7 +300,7 @@ class SumaGastos{
 	static public function sumaRegistroGastos($con,$userID){
 
 
-		$stmt = $con->prepare("SELECT SUM(amount_expenses) FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) ORDER BY id_expenses DESC ");
+		$stmt = $con->prepare("SELECT SUM(amount_expenses)  FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) ORDER BY id_expenses DESC ");
 
 		$stmt -> execute();
 
@@ -365,4 +365,82 @@ function fechaTraducida(){
   }elseif($date === 'Dec'){
     echo "Diciembre";
   }
+}
+
+
+//SUMA METODOS DE PAGO PARA EFECTIVO
+class SumaMedioDePagoE{
+
+	static public function sumaRegistroMedioDePagoE($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT SUM(amount_expenses)  FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) AND paymentMethod_expenses = 'E' ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchAll();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
+
+//SUMA METODOS DE PAGO PARA TARJETA CREDITO
+class SumaMedioDePagoTC{
+
+	static public function sumaRegistroMedioDePagoTC($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT SUM(amount_expenses)  FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) AND paymentMethod_expenses = 'O' ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchAll();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
+
+//SUMA METODOS DE PAGO PARA TARJETA DEBITO
+class SumaMedioDePagoTD{
+
+	static public function sumaRegistroMedioDePagoTD($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT SUM(amount_expenses)  FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) AND paymentMethod_expenses = 'TC' ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchAll();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
+}
+
+
+//SUMA METODOS DE PAGO PARA TARJETA DEBITO
+class SumaMedioDePagoTR{
+
+	static public function sumaRegistroMedioDePagoTR($con,$userID){
+
+
+		$stmt = $con->prepare("SELECT SUM(amount_expenses)  FROM expenses WHERE id_user = $userID AND YEAR(date_expenses) = YEAR(CURRENT_DATE()) AND MONTH(date_expenses) = MONTH(CURRENT_DATE()) AND paymentMethod_expenses = 'T' ORDER BY id_expenses DESC ");
+
+		$stmt -> execute();
+
+		$respuesta =  $stmt -> fetchAll();
+
+    return $respuesta;
+
+		$stmt->close();
+		$stmt = null;
+    }
 }

@@ -48,42 +48,42 @@
             </div>
             <div class="form-group">
                   <label>Medio de pago</label>
-                  <select name="medioDePago" class="form-control" id="medioDePago">
-                      <option id ="SeleccionOption" selected="true" disabled="disabled">Toca para seleccionar</option>
-                      <option value="E">Efectivo</option>
-                      <option  value="O">Tarjeta de credito</option>
-                      <option  value="TC">Tarjeta de debito</option>
-                      <option  value="T">Transferencia</option>
+                  <select name="medioDePagoEditar" class="form-control" id="medioDePagoEditar">
+                      <option id ="SeleccionOptionEditar" selected="true" disabled="disabled">Toca para seleccionar</option>
+                      <option value="E1">Efectivo</option>
+                      <option  value="O1">Tarjeta de credito</option>
+                      <option  value="TC1">Tarjeta de debito</option>
+                      <option  value="T1">Transferencia</option>
                   </select>
                     <br>
-                    <label>Banco/Plataforma</label>
+                    <label id="bancoPlataformaEditar" class="d-none">Banco/Plataforma</label>
 
-                    <select id="plataforma1" name="plataforma1" class="d-none">
+                    <select id="plataforma1Editar" name="plataforma1Editar" class="d-none">
                      <option selected="true" disabled="disabled">Toca para seleccionar</option>
-                      <option data-option="E"   value="01">Ninguno</option>
+                      <option data-option="E1"   value="01">Ninguno</option>
                     </select>
 
-                    <select id="plataforma2" name="plataforma2" class="d-none">
+                    <select id="plataforma2Editar" name="plataforma2Editar" class="d-none">
                      <option selected="true" disabled="disabled">Toca para seleccionar</option>
-                      <option data-option="O"   value="01">Banco Galicia VISA</option>
-                      <option data-option="O"   value="02">Banco Santander VISA</option>
-                      <option data-option="O"    value="03">Brubank VISA</option>
-                      <option data-option="O"    value="04">Mercado Pago Credito</option>
+                      <option data-option="O1"   value="01">Banco Galicia VISA</option>
+                      <option data-option="O1"   value="02">Banco Santander VISA</option>
+                      <option data-option="O1"    value="03">Brubank VISA</option>
+                      <option data-option="O1"    value="04">Mercado Pago Credito</option>
                     </select>
 
-                    <select  id="plataforma3" name="plataforma3" class="d-none">
+                    <select  id="plataforma3Editar" name="plataforma3Editar" class="d-none">
                      <option selected="true" disabled="disabled">Toca para seleccionar</option>
-                      <option data-option="TC"    value="TC1">Galicia</option>
-                      <option data-option="TC"   value="TC2">Santander</option>
-                      <option data-option="TC"    value="TC3">Brubank</option>
-                      <option data-option="TC"   value="TC4">Mercado Pago</option>
+                      <option data-option="TC1"    value="TC11">Galicia</option>
+                      <option data-option="TC1"   value="TC21">Santander</option>
+                      <option data-option="TC1"    value="TC31">Brubank</option>
+                      <option data-option="TC1"   value="TC41">Mercado Pago</option>
                     </select>
 
-                    <select id="plataforma4" name="plataforma4" class="d-none">
+                    <select id="plataforma4Editar" name="plataforma4Editar" class="d-none">
                       <option selected="true" disabled="disabled">Toca para seleccionar</option>
-                      <option data-option="T"   value="T">Banco galicia</option>
-                      <option data-option="T"   value="T">Banco Santander</option>
-                      <option data-option="T"   value="T">Banco Brubank</option>
+                      <option data-option="T1"   value="T1">Banco galicia</option>
+                      <option data-option="T1"   value="T1">Banco Santander</option>
+                      <option data-option="T1"   value="T1">Banco Brubank</option>
                     </select>
 
             </div>
@@ -102,5 +102,7 @@
     </div>
   </div>
 </div>
+
 </form>
+
   <!-- ========== End FORM ========== -->

@@ -37,7 +37,15 @@ $data = MuestraGastos::mostrarRegistroGastos($con, $userID);
               </div>
             </div>
             <div class="card-body">
-              <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+            <div class="d-flex">
+              <div class="text-info mr-2">Efectivo:</div>
+              <div class="text-info mr-2">TC: </div>
+              <div class="text-info mr-2">TD: </div>
+              <div class="text-info mr-2">Transf: </div>
+            </div>
+              <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;">
+
+              </canvas>
             </div>
             <!-- /.card-body -->
           </div>
